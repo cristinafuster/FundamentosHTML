@@ -1,6 +1,6 @@
 /* =========================
-   styles.css — Portfolio Pro (Google Fonts)
-   Usa: Inter (texto) + Poppins (títulos)
+   styles.css — Portfolio Pro (visible upgrade)
+   Fuentes: Inter (texto) + Poppins (títulos)
    ========================= */
 
 /* ===== Reset básico ===== */
@@ -14,17 +14,17 @@
 body {
   font-family: "Inter", Arial, sans-serif;
   background: #f6f7fb;
-  color: #222;
-  line-height: 1.6;
+  color: #1f2937;
+  line-height: 1.65;
 }
 
-/* Tipografía de títulos (coherente en todo el sitio) */
-.header__name,
-.hero__title,
-.section-title,
-.project__title,
-.contact__method-title {
-  font-family: "Poppins", sans-serif;
+/* Ancho de lectura cómodo */
+.hero__description,
+.section-lead,
+.project__description,
+.about__text,
+.about__intro {
+  max-width: 70ch;
 }
 
 /* ===== Layout ===== */
@@ -35,29 +35,62 @@ body {
 .skills__container,
 .contact__container,
 .footer__container {
-  max-width: 980px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 24px;
+}
+
+/* Separación entre secciones (ritmo vertical) */
+.hero,
+.about,
+.projects,
+.skills,
+.contact {
+  padding: 42px 0;
+}
+
+/* ===== Títulos (sistema tipográfico) ===== */
+.header__name,
+.hero__title,
+.section-title,
+.project__title,
+.contact__method-title {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.header__name {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.section-title {
+  font-size: 1.55rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.section-lead {
+  color: #4b5563;
+  margin-bottom: 18px;
+  font-size: 1rem;
 }
 
 /* ===== Header ===== */
 .header {
-  background: #ffffff;
-  border-bottom: 1px solid #e6e6e6;
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(8px);
 }
 
 .header__brand {
   margin-bottom: 12px;
 }
 
-.header__name {
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
 .header__tagline {
-  color: #555;
+  color: #6b7280;
   font-size: 0.95rem;
 }
 
@@ -72,73 +105,70 @@ body {
 .nav__link {
   text-decoration: none;
   color: #1a4cff;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-weight: 700;
   font-size: 0.85rem;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  border-radius: 10px;
 }
 
 .nav__link:hover {
-  text-decoration: underline;
+  background: #eef2ff;
 }
 
 .nav__link--active {
-  text-decoration: underline;
+  background: #eef2ff;
 }
 
-/* ===== Secciones ===== */
-.section-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  letter-spacing: -0.01em;
-}
-
-.section-lead {
-  color: #555;
-  margin-bottom: 16px;
-  max-width: 70ch;
+/* Accesibilidad: foco visible al navegar con teclado */
+.nav__link:focus,
+.button:focus,
+.project__link:focus,
+.contact__link:focus {
+  outline: 3px solid rgba(26, 76, 255, 0.35);
+  outline-offset: 2px;
 }
 
 /* ===== Hero ===== */
 .hero {
-  padding: 30px 0;
+  /* toque visual suave sin complicarse */
+  background: linear-gradient(180deg, rgba(26, 76, 255, 0.08), rgba(246, 247, 251, 0));
 }
 
 .hero__title {
-  font-size: 2rem;
+  font-size: 2.3rem;
   font-weight: 700;
   margin-bottom: 6px;
-  letter-spacing: -0.02em;
 }
 
 .hero__subtitle {
-  color: #444;
-  margin-bottom: 10px;
+  color: #374151;
+  margin-bottom: 12px;
   font-weight: 600;
 }
 
 .hero__description {
-  color: #555;
-  margin-bottom: 18px;
-  max-width: 65ch;
+  color: #4b5563;
+  margin-bottom: 20px;
 }
 
-/* Botones / acciones */
+/* Botones */
 .hero__actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 
 .button {
   display: inline-block;
-  padding: 10px 14px;
-  border-radius: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
   text-decoration: none;
   font-weight: 700;
   font-size: 0.95rem;
+  transition: transform 0.12s ease, opacity 0.12s ease, background 0.12s ease;
 }
 
 .button--primary {
@@ -147,7 +177,8 @@ body {
 }
 
 .button--primary:hover {
-  opacity: 0.9;
+  opacity: 0.95;
+  transform: translateY(-1px);
 }
 
 .button--secondary {
@@ -158,98 +189,105 @@ body {
 
 .button--secondary:hover {
   background: #eef2ff;
+  transform: translateY(-1px);
 }
 
 .button--large {
   margin-top: 14px;
-  padding: 12px 16px;
 }
 
 /* Stats */
 .hero__stats {
-  display: flex;
+  display: grid;
   gap: 12px;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
 }
 
 .stat {
   background: #ffffff;
-  border: 1px solid #e6e6e6;
-  border-radius: 12px;
-  padding: 12px;
-  min-width: 160px;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
 }
 
 .stat__number {
   display: block;
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 800;
 }
 
 .stat__label {
-  color: #555;
-  font-size: 0.9rem;
+  color: #6b7280;
+  font-size: 0.95rem;
 }
 
 /* ===== Quote ===== */
 .quote {
-  margin-top: 16px;
+  margin-top: 18px;
   background: #ffffff;
-  border-left: 4px solid #1a4cff;
-  padding: 12px;
-  border-radius: 12px;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-left: 6px solid #1a4cff;
+  padding: 14px;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
 }
 
 .quote__text {
-  color: #333;
+  color: #1f2937;
 }
 
 .quote__author {
   display: block;
-  margin-top: 6px;
-  color: #555;
+  margin-top: 8px;
+  color: #6b7280;
   font-size: 0.95rem;
 }
 
-/* ===== Proyectos ===== */
+/* ===== Cards (Proyectos / Skills / Contact) ===== */
+.project,
+.skills__item,
+.contact__method {
+  background: #ffffff;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
+}
+
+/* Grid proyectos */
 .projects__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
-}
-
-.project {
-  background: #ffffff;
-  border: 1px solid #e6e6e6;
-  border-radius: 14px;
-  padding: 16px;
+  gap: 16px;
 }
 
 .project--featured {
-  border: 2px solid #ffb703;
+  border: 2px solid rgba(255, 183, 3, 0.9);
 }
 
+/* Badge más claro */
 .project__badge {
   display: inline-block;
-  background: #ffb703;
-  color: #222;
-  font-weight: 700;
-  padding: 4px 10px;
+  background: rgba(255, 183, 3, 0.25);
+  border: 1px solid rgba(255, 183, 3, 0.7);
+  color: #1f2937;
+  font-weight: 800;
+  padding: 5px 10px;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   margin-bottom: 10px;
 }
 
 .project__title {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-size: 1.15rem;
   font-weight: 700;
 }
 
 .project__description {
-  color: #555;
-  margin-bottom: 10px;
-  max-width: 70ch;
+  color: #4b5563;
+  margin-bottom: 12px;
 }
 
 /* Tags */
@@ -257,27 +295,27 @@ body {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .tag {
-  background: #eef2ff;
+  background: rgba(26, 76, 255, 0.08);
   color: #1a4cff;
-  padding: 4px 10px;
+  padding: 6px 10px;
   border-radius: 999px;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
-/* Links de proyecto */
+/* Links */
 .project__links {
   display: flex;
-  gap: 12px;
+  gap: 14px;
 }
 
 .project__link {
   color: #1a4cff;
-  font-weight: 700;
+  font-weight: 800;
   text-decoration: none;
 }
 
@@ -289,30 +327,19 @@ body {
 .skills__list {
   list-style: none;
   display: grid;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: 12px;
 }
 
 .skills__item {
-  background: #ffffff;
-  border: 1px solid #e6e6e6;
-  border-radius: 12px;
-  padding: 12px 14px;
   font-weight: 600;
 }
 
 /* ===== Contacto ===== */
 .contact__methods {
   display: grid;
-  gap: 12px;
+  gap: 14px;
   margin-top: 14px;
-}
-
-.contact__method {
-  background: #ffffff;
-  border: 1px solid #e6e6e6;
-  border-radius: 14px;
-  padding: 14px;
 }
 
 .contact__method-title {
@@ -324,7 +351,7 @@ body {
 .contact__link {
   color: #1a4cff;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .contact__link:hover {
@@ -333,17 +360,17 @@ body {
 
 /* ===== Footer ===== */
 .footer {
-  margin-top: 30px;
-  border-top: 1px solid #e6e6e6;
-  background: #ffffff;
+  border-top: 1px solid rgba(17, 24, 39, 0.08);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .footer__text {
-  color: #555;
+  color: #6b7280;
   font-size: 0.95rem;
+  padding: 18px 0;
 }
 
-/* ===== Responsive simple ===== */
+/* ===== Responsive ===== */
 @media (min-width: 800px) {
   .header__container {
     display: flex;
