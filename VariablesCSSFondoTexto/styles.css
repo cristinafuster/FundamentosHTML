@@ -1,0 +1,31 @@
+/* =========================
+   Variables globales
+   ========================= */
+
+:root {
+  --box-bg: #f5f5f5;
+  --box-text: #222222;
+}
+
+/* =========================
+   Caja base
+   ========================= */
+
+.box {
+  background-color: var(--box-bg);
+  color: var(--box-text);
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  max-width: 300px;
+  border: 1px solid #dddddd;
+}
+
+/* =========================
+   Variante destacada
+   ========================= */
+
+.box.box-warning {
+  --box-bg: #ffeb3b;
+  --box-text: #000000;
+}
