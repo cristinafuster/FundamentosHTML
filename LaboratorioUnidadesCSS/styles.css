@@ -1,0 +1,72 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6fb;
+  color: #222;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.intro {
+  color: #555;
+  margin-bottom: 20px;
+  max-width: 65ch;
+}
+
+/* CONTENEDOR PADRE */
+.lab {
+  border: 2px dashed #aaa;
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+/* CAJA BASE */
+.box {
+  background: #ffffff;
+  border: 2px solid #1a4cff;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+/* UNIDADES */
+
+/* PX: fijo */
+.box-px {
+  width: 200px;
+}
+
+/* %: relativo al padre */
+.box-percent {
+  width: 50%;
+}
+
+/* REM: relativo al html */
+.box-rem {
+  width: 15rem;
+}
+
+/* EM: relativo al padre */
+.box-em {
+  font-size: 18px;
+  width: 10em;
+}
+
+/* VW: relativo a la ventana */
+.box-vw {
+  width: 30vw;
+}
+
+/* VH: relativo a la ventana */
+.box-vh {
+  height: 20vh;
+}
