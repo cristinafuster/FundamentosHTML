@@ -1,0 +1,155 @@
+/* =========================
+   RESET BÁSICO
+   ========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #0b0f19;
+  color: #e8eaf0;
+}
+
+/* =========================
+   BOTONES
+   ========================= */
+.btn {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #ff2d78;
+  color: #0b0f19;
+  font-weight: 700;
+  border: none;
+}
+
+.btn.secondary {
+  background: rgba(255,255,255,0.12);
+  color: white;
+}
+
+.btn.small {
+  margin-top: auto; /* empuja el botón al fondo de la card (flex) */
+}
+
+/* =========================
+   NAVBAR (FLEXBOX)
+   ========================= */
+.nav {
+  display: flex;                 /* activa Flexbox */
+  justify-content: space-between;/* reparte los elementos */
+  align-items: center;           /* centra verticalmente */
+  padding: 16px;
+}
+
+/* Links del menú */
+.links {
+  display: flex; /* enlaces en fila */
+  gap: 14px;
+}
+
+/* =========================
+   LAYOUT PRINCIPAL (GRID)
+   ========================= */
+.layout {
+  display: grid;                 /* activa Grid */
+  grid-template-columns: 2fr 1fr;/* contenido + aside */
+  gap: 20px;
+  padding: 20px;
+}
+
+/* =========================
+   HERO
+   ========================= */
+.hero {
+  padding: 20px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 16px;
+}
+
+/* Botones del hero alineados con FLEX */
+.hero-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   BENEFICIOS (FLEXBOX)
+   ========================= */
+.benefits {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 10px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+}
+
+/* =========================
+   ASIDE
+   ========================= */
+.aside {
+  padding: 20px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 16px;
+}
+
+/* =========================
+   SECCIÓN DE CARDS
+   ========================= */
+.cards-section {
+  grid-column: 1 / -1; /* ocupa todas las columnas del grid principal */
+}
+
+/* GRID de cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+/* Card individual */
+.card {
+  display: flex;                /* Flexbox dentro de la card */
+  flex-direction: column;       /* contenido en columna */
+  padding: 16px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 14px;
+}
+
+/* Meta info alineada con flex */
+.meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* =========================
+   FORMULARIO (FLEXBOX)
+   ========================= */
+.form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 900px) {
+  /* El grid pasa a una sola columna */
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Cards en columna */
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
