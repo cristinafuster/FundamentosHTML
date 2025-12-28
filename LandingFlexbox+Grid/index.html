@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Configuración básica del documento -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Título que aparece en la pestaña del navegador -->
+  <title>Mini Landing - Grid + Flex</title>
+
+  <!-- Enlace al archivo CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- =========================
+       BARRA SUPERIOR / NAV
+       Se usa FLEXBOX para alinear elementos en una fila
+       ========================= -->
+  <header class="topbar">
+    <nav class="nav">
+      <!-- Logo o nombre del proyecto -->
+      <div class="brand">RocketCamp 🚀</div>
+
+      <!-- Enlaces del menú (alineados en fila con flex) -->
+      <div class="links">
+        <a href="#beneficios">Beneficios</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
+      <!-- Botón de acción -->
+      <a class="btn" href="#contacto">Pedir info</a>
+    </nav>
+  </header>
+
+  <!-- =========================
+       LAYOUT PRINCIPAL
+       Se usa GRID para la estructura general
+       2 columnas: contenido + aside
+       ========================= -->
+  <main class="layout">
+
+    <!-- ========= HERO ========= -->
+    <section class="hero">
+      <p class="pill">Landing práctica · HTML + CSS</p>
+
+      <!-- Título principal -->
+      <h1>Aprende maquetación como en proyectos reales</h1>
+
+      <!-- Texto introductorio -->
+      <p class="lead">
+        Usamos <strong>Grid</strong> para la estructura
+        y <strong>Flexbox</strong> para alinear componentes.
+      </p>
+
+      <!-- Botones del hero (alineados con FLEX) -->
+      <div class="hero-actions">
+        <a class="btn" href="#cursos">Ver cursos</a>
+        <a class="btn secondary" href="#beneficios">Cómo funciona</a>
+      </div>
+
+      <!-- ===== BENEFICIOS =====
+           Se usa FLEX para colocar badges en fila
+           ===================== -->
+      <div id="beneficios" class="benefits">
+        <div class="badge">✅ Layout profesional</div>
+        <div class="badge">✅ Cards reales</div>
+        <div class="badge">✅ Responsive</div>
+      </div>
+    </section>
+
+    <!-- ========= ASIDE ========= -->
+    <aside class="aside">
+      <h2>Checklist del alumno</h2>
+
+      <!-- Lista normal, no necesita flex ni grid -->
+      <ul class="checklist">
+        <li>¿Hay un contenedor con <code>display: grid</code>?</li>
+        <li>¿El menú usa <code>display: flex</code>?</li>
+        <li>¿Las cards tienen botón abajo?</li>
+        <li>¿En móvil se ve bien?</li>
+      </ul>
+
+      <div class="mini-note">
+        Tip: en proyectos reales se usan <strong>Grid + Flex</strong> juntos.
+      </div>
+    </aside>
+
+    <!-- =========================
+         SECCIÓN DE CARDS
+         GRID para la estructura
+         ========================= -->
+    <section id="cursos" class="cards-section">
+
+      <!-- Encabezado de sección -->
+      <div class="section-head">
+        <h2>Cursos destacados</h2>
+        <p>Grid para colocar las cards, Flex dentro de cada card.</p>
+      </div>
+
+      <!-- GRID de cards -->
+      <div class="cards-grid">
+
+        <!-- Card individual -->
+        <!-- Dentro de la card usamos FLEX en columna -->
+        <article class="card">
+          <h3>HTML básico</h3>
+          <p>Estructura correcta y buenas prácticas.</p>
+
+          <!-- Información alineada con flex -->
+          <div class="meta">
+            <span>⏱ 2h</span>
+            <span>📌 Nivel 1</span>
+          </div>
+
+          <!-- Botón siempre abajo gracias a flex -->
+          <a class="btn small" href="#contacto">Quiero este</a>
+        </article>
+
+        <article class="card">
+          <h3>CSS Flexbox</h3>
+          <p>Alinea elementos y crea filas de componentes.</p>
+          <div class="meta">
+            <span>⏱ 3h</span>
+            <span>📌 Nivel 2</span>
+          </div>
+          <a class="btn small" href="#contacto">Quiero este</a>
+        </article>
+
+        <!-- Card destacada -->
+        <article class="card featured">
+          <h3>CSS Grid</h3>
+          <p>Construye layouts completos en dos ejes.</p>
+          <div class="meta">
+            <span>⏱ 3h</span>
+            <span>⭐ Favorito</span>
+          </div>
+          <a class="btn small" href="#contacto">Quiero este</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         CTA FINAL
+         ========================= -->
+    <section id="contacto" class="cta">
+      <h2>¿Te apuntas al siguiente reto?</h2>
+      <p>Este formulario es solo visual.</p>
+
+      <!-- FORMULARIO CON FLEX -->
+      <form class="form">
+        <input type="text" placeholder="Tu nombre" required />
+        <input type="email" placeholder="Tu email" required />
+        <button class="btn" type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <p>© 2025 · Hecho con Grid + Flexbox</p>
+  </footer>
+
+</body>
+</html>
