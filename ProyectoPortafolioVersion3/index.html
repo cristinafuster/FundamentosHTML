@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- Configuración básica -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Título y descripción -->
+  <title>Tu Nombre - Portfolio Profesional</title>
+  <meta name="description" content="Portfolio profesional de Tu Nombre. Proyectos, habilidades y contacto." />
+
+  <!-- Enlace al CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__container">
+      <div class="header__brand">
+        <h1 class="header__name">Tu Nombre</h1>
+        <p class="header__tagline">Tu perfil profesional en una frase</p>
+      </div>
+
+      <!-- Navegación -->
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <!-- Importante: sin clase --active para que no quede marcado -->
+          <li class="nav__item"><a class="nav__link" href="#inicio">Inicio</a></li>
+          <li class="nav__item"><a class="nav__link" href="#sobre-mi">Sobre mí</a></li>
+          <li class="nav__item"><a class="nav__link" href="#proyectos">Proyectos</a></li>
+          <li class="nav__item"><a class="nav__link" href="#habilidades">Habilidades</a></li>
+          <li class="nav__item"><a class="nav__link" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- HERO / INICIO -->
+    <section class="hero" id="inicio">
+      <div class="hero__container">
+        <div class="hero__content">
+          <h2 class="hero__title">¡Hola! Soy Tu Nombre</h2>
+          <p class="hero__subtitle">Tu rol u objetivo (ej. “Desarrollador/a web en formación”)</p>
+
+          <p class="hero__description">
+            Escribe 2–3 líneas sobre ti: qué estás aprendiendo, qué te interesa y qué te gustaría conseguir.
+          </p>
+
+          <div class="hero__actions">
+            <a class="button button--primary" href="#proyectos">Ver proyectos</a>
+            <a class="button button--secondary" href="#contacto">Contactar</a>
+          </div>
+
+          <div class="hero__stats">
+            <div class="stat">
+              <span class="stat__number">+X</span>
+              <span class="stat__label">Meses aprendiendo</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number">+X</span>
+              <span class="stat__label">Proyectos</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number">+X</span>
+              <span class="stat__label">Tecnologías</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section class="about" id="sobre-mi">
+      <div class="about__container">
+        <h2 class="section-title">Sobre mí</h2>
+
+        <div class="about__grid">
+          <!-- FOTO REDONDA -->
+          <div class="about__profile">
+            <!--
+              ✅ Crea una carpeta /img y mete ahí la foto.
+              ✅ Cambia el nombre si quieres, pero actualiza el src.
+            -->
+            <div class="about__avatar">
+              <img src="img/alumna.png" alt="Foto de perfil de la alumna" class="about__avatar-img" />
+            </div>
+            <p class="about__photo-note">Foto de ejemplo (alumna ficticia)</p>
+          </div>
+
+          <!-- TEXTO -->
+          <div class="about__textblock">
+            <p class="about__intro">
+              Soy <strong>Tu Nombre</strong> y actualmente estoy aprendiendo HTML y CSS para crear páginas web claras,
+              ordenadas y con estilo profesional.
+            </p>
+
+            <p class="about__text">
+              Aquí puedes contar tu experiencia previa (aunque no sea informática) y cómo te ayuda: organización,
+              comunicación, trabajo en equipo, etc.
+            </p>
+
+            <blockquote class="quote">
+              <p class="quote__text">“Una frase corta que te motive o te represente.”</p>
+              <cite class="quote__author">— Tu nombre</cite>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section class="projects" id="proyectos">
+      <div class="projects__container">
+        <h2 class="section-title">Proyectos</h2>
+        <p class="section-lead">Incluye proyectos sencillos: una landing, un formulario, una web de tienda, etc.</p>
+
+        <div class="projects__grid">
+          <article class="project">
+            <h3 class="project__title">Proyecto 1: (nombre)</h3>
+            <p class="project__description">Explica qué es y qué practicaste.</p>
+
+            <div class="project__tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+            </div>
+
+            <div class="project__links">
+              <a class="project__link" href="#" target="_blank" rel="noopener">Ver</a>
+              <a class="project__link" href="#" target="_blank" rel="noopener">Código</a>
+            </div>
+          </article>
+
+          <article class="project project--featured">
+            <span class="project__badge">Destacado</span>
+            <h3 class="project__title">Proyecto 2: (nombre)</h3>
+            <p class="project__description">Cuenta por qué es el que más te gusta o el más completo.</p>
+
+            <div class="project__tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">BEM</span>
+            </div>
+
+            <div class="project__links">
+              <a class="project__link" href="#" target="_blank" rel="noopener">Ver</a>
+              <a class="project__link" href="#" target="_blank" rel="noopener">Código</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section class="skills" id="habilidades">
+      <div class="skills__container">
+        <h2 class="section-title">Habilidades</h2>
+
+        <ul class="skills__list">
+          <li class="skills__item">💻 HTML semántico</li>
+          <li class="skills__item">🎨 CSS y diseño visual</li>
+          <li class="skills__item">📦 Box Model (márgenes, padding, bordes)</li>
+          <li class="skills__item">📐 Organización con BEM</li>
+          <li class="skills__item">📱 Responsive básico</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contact" id="contacto">
+      <div class="contact__container">
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-lead">Añade al menos una forma real de contacto (email o LinkedIn).</p>
+
+        <div class="contact__methods">
+          <div class="contact__method">
+            <h3 class="contact__method-title">📧 Email</h3>
+            <a class="contact__link" href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a>
+          </div>
+
+          <div class="contact__method">
+            <h3 class="contact__method-title">💼 LinkedIn</h3>
+            <a class="contact__link" href="#" target="_blank" rel="noopener">Tu perfil</a>
+          </div>
+        </div>
+
+        <a class="button button--primary button--large" href="#" target="_blank" rel="noopener">
+          📄 Descargar CV (PDF)
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__container">
+      <p class="footer__text">© 2026 Tu Nombre · Portfolio realizado con HTML + CSS</p>
+    </div>
+  </footer>
+</body>
+
+</html>
