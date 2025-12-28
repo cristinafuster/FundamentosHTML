@@ -50,11 +50,6 @@ body {
   gap: 14px;
 }
 
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000; /* asegura que esté por encima del resto */
-}
 
 /* =========================
    LAYOUT PRINCIPAL (GRID)
