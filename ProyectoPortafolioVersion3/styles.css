@@ -1,37 +1,53 @@
-/* =========================
-   styles.css — Portfolio Pro (upgrade visual)
-   Cambios de este bloque:
-   ✅ Botón primario con sombra + hover más claro
-   ✅ Cards con hover "elevación" (solo proyectos)
-   ✅ (Opcional) Sombra de texto en el título del hero
-   ⚠️ Recuerda: este archivo debe contener SOLO CSS
-   ========================= */
+/* =========================================================
+   styles.css — Portfolio (azul marino + naranja)
+   Incluye: sticky header, hover tarjetas, avatar redondo
+   ========================================================= */
 
-/* ===== Reset básico ===== */
+/* =========================
+   1) Variables (colores y medidas)
+   ========================= */
+:root {
+  --navy: #0b1f3a;        /* Azul marino */
+  --navy-2: #132f56;      /* Variante más clara */
+  --orange: #f28c28;      /* Naranja profesional */
+  --bg: #f6f7fb;          /* Fondo claro */
+  --white: #ffffff;
+  --text: #1f2937;
+  --muted: #5b6472;
+
+  --radius: 16px;
+  --shadow: 0 14px 30px rgba(11, 31, 58, 0.12);
+  --shadow-strong: 0 18px 40px rgba(11, 31, 58, 0.18);
+
+  --max: 1020px;
+  --pad: 24px;
+
+  /* Altura aproximada del header (para scroll a anchors sin tapar) */
+  --header-offset: 90px;
+}
+
+/* =========================
+   2) Reset básico
+   ========================= */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ===== Base ===== */
 body {
-  font-family: "Inter", Arial, sans-serif;
-  background: #f6f7fb;
-  color: #1f2937;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
   line-height: 1.65;
 }
 
-/* Ancho de lectura cómodo */
-.hero__description,
-.section-lead,
-.project__description,
-.about__text,
-.about__intro {
-  max-width: 70ch;
+/* Para que al hacer click en el menú NO quede el título escondido bajo el header sticky */
+section {
+  scroll-margin-top: var(--header-offset);
 }
 
-/* ===== Layout ===== */
+/* Ancho estándar en contenedores */
 .header__container,
 .hero__container,
 .about__container,
@@ -39,12 +55,12 @@ body {
 .skills__container,
 .contact__container,
 .footer__container {
-  max-width: 1000px;
+  max-width: var(--max);
   margin: 0 auto;
-  padding: 24px;
+  padding: var(--pad);
 }
 
-/* Separación entre secciones */
+/* Separación vertical por secciones */
 .hero,
 .about,
 .projects,
@@ -53,119 +69,110 @@ body {
   padding: 42px 0;
 }
 
-/* ===== Títulos (sistema tipográfico) ===== */
-.header__name,
-.hero__title,
-.section-title,
-.project__title,
-.contact__method-title {
-  font-family: "Poppins", sans-serif;
-  letter-spacing: -0.02em;
-}
-
-.header__name {
-  font-size: 1.6rem;
-  font-weight: 700;
-}
-
-.section-title {
-  font-size: 1.55rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.section-lead {
-  color: #4b5563;
-  margin-bottom: 18px;
-  font-size: 1rem;
-}
-
-/* ===== Header ===== */
+/* =========================
+   3) Header (sticky) + nav
+   ========================= */
 .header {
-  background: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
-
-  /* Menú siempre visible al hacer scroll (sticky) */
   position: sticky;
   top: 0;
-
-  /* Efecto cristal (solo si el navegador lo soporta) */
-  backdrop-filter: blur(8px);
+  z-index: 50; /* Para que el header esté por encima */
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(11, 31, 58, 0.10);
+  backdrop-filter: blur(10px);
 }
 
 .header__brand {
   margin-bottom: 12px;
 }
 
+.header__name {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+
 .header__tagline {
-  color: #6b7280;
+  color: var(--muted);
   font-size: 0.95rem;
 }
 
-/* ===== Navegación ===== */
+/* Navegación */
 .nav__list {
   list-style: none;
   display: flex;
-  gap: 14px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 .nav__link {
   text-decoration: none;
-  color: #1a4cff;
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 8px 10px;
-  border-radius: 10px;
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: background 0.15s ease, transform 0.15s ease;
 }
 
+/* Hover en los links del menú */
 .nav__link:hover {
-  background: #eef2ff;
+  background: rgba(242, 140, 40, 0.14);
+  transform: translateY(-1px);
 }
 
-.nav__link--active {
-  background: #eef2ff;
-}
-
-/* Accesibilidad: foco visible al navegar con teclado */
+/* Accesibilidad: foco visible con teclado */
 .nav__link:focus,
 .button:focus,
 .project__link:focus,
 .contact__link:focus {
-  outline: 3px solid rgba(26, 76, 255, 0.35);
+  outline: 3px solid rgba(242, 140, 40, 0.35);
   outline-offset: 2px;
 }
 
-/* ===== Hero ===== */
+/* =========================
+   4) Títulos generales
+   ========================= */
+.section-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--navy);
+}
+
+.section-lead {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+/* =========================
+   5) Hero
+   ========================= */
 .hero {
-  /* Fondo con degradado suave (ya lo tenías) */
+  /* Fondo con degradado suave */
   background: linear-gradient(
     180deg,
-    rgba(26, 76, 255, 0.08),
+    rgba(11, 31, 58, 0.10),
     rgba(246, 247, 251, 0)
   );
 }
 
 .hero__title {
-  font-size: 2.3rem;
-  font-weight: 700;
+  color: var(--navy);
+  font-size: 2.2rem;
+  font-weight: 900;
   margin-bottom: 6px;
-
-  /* (Opcional) Sombra de texto MUY suave: mejora contraste en fondos claros */
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
 }
 
 .hero__subtitle {
-  color: #374151;
+  color: var(--navy-2);
   margin-bottom: 12px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .hero__description {
-  color: #4b5563;
-  margin-bottom: 20px;
+  color: var(--muted);
+  margin-bottom: 18px;
+  max-width: 70ch;
 }
 
 /* Botones */
@@ -181,45 +188,31 @@ body {
   padding: 12px 16px;
   border-radius: 12px;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 0.95rem;
-
-  /* Transiciones suaves para hover */
-  transition: transform 0.12s ease, opacity 0.12s ease, background 0.12s ease,
-    box-shadow 0.12s ease;
+  font-weight: 900;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
 
-/* ✅ CAMBIO: Botón primario con sombra */
 .button--primary {
-  background: #1a4cff;
-  color: #fff;
-
-  /* Sombra azul suave: “botón elevadito” */
-  box-shadow: 0 10px 22px rgba(26, 76, 255, 0.22);
+  background: linear-gradient(135deg, var(--navy), var(--navy-2));
+  color: var(--white);
+  box-shadow: var(--shadow);
 }
 
-/* ✅ CAMBIO: Hover más claro (sube un poco + sombra más marcada) */
 .button--primary:hover {
-  opacity: 0.95;
   transform: translateY(-2px);
-  box-shadow: 0 14px 26px rgba(26, 76, 255, 0.28);
+  opacity: 0.98;
+  box-shadow: var(--shadow-strong);
 }
 
 .button--secondary {
-  background: #ffffff;
-  border: 2px solid #1a4cff;
-  color: #1a4cff;
-
-  /* (Opcional) Sombra muy sutil para que no se vea “plano” */
-  box-shadow: 0 10px 22px rgba(17, 24, 39, 0.06);
+  background: var(--white);
+  border: 2px solid var(--navy);
+  color: var(--navy);
 }
 
 .button--secondary:hover {
-  background: #eef2ff;
-  transform: translateY(-1px);
-
-  /* Un poco más de sombra al hover */
-  box-shadow: 0 14px 26px rgba(17, 24, 39, 0.08);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
 }
 
 .button--large {
@@ -234,104 +227,149 @@ body {
 }
 
 .stat {
-  background: #ffffff;
-  border: 1px solid rgba(17, 24, 39, 0.08);
-  border-radius: 16px;
+  background: var(--white);
+  border: 1px solid rgba(11, 31, 58, 0.10);
+  border-radius: var(--radius);
   padding: 14px;
-  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
+  box-shadow: var(--shadow);
 }
 
 .stat__number {
   display: block;
   font-size: 1.25rem;
-  font-weight: 800;
+  font-weight: 900;
+  color: var(--navy);
 }
 
 .stat__label {
-  color: #6b7280;
-  font-size: 0.95rem;
+  color: var(--muted);
 }
 
-/* ===== Quote ===== */
+/* =========================
+   6) Sobre mí + foto redonda
+   ========================= */
+.about__grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.about__intro,
+.about__text {
+  max-width: 70ch;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.about__photo-note {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Marco redondo con sombra */
+.about__avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  border: 6px solid rgba(242, 140, 40, 0.85);
+  box-shadow: 0 18px 40px rgba(11, 31, 58, 0.22);
+  background: var(--white);
+}
+
+.about__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Quote */
 .quote {
-  margin-top: 18px;
-  background: #ffffff;
-  border: 1px solid rgba(17, 24, 39, 0.08);
-  border-left: 6px solid #1a4cff;
+  margin-top: 10px;
+  background: var(--white);
+  border: 1px solid rgba(11, 31, 58, 0.10);
+  border-left: 6px solid var(--orange);
   padding: 14px;
-  border-radius: 16px;
-  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .quote__text {
-  color: #1f2937;
+  color: var(--navy);
+  font-weight: 700;
 }
 
 .quote__author {
   display: block;
   margin-top: 8px;
-  color: #6b7280;
-  font-size: 0.95rem;
+  color: var(--muted);
 }
 
-/* ===== Cards (Proyectos / Skills / Contact) ===== */
+/* =========================
+   7) Cards (proyectos / skills / contacto)
+   ========================= */
 .project,
 .skills__item,
 .contact__method {
-  background: #ffffff;
-  border: 1px solid rgba(17, 24, 39, 0.08);
-  border-radius: 16px;
+  background: var(--white);
+  border: 1px solid rgba(11, 31, 58, 0.10);
+  border-radius: var(--radius);
   padding: 18px;
-  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
+  box-shadow: var(--shadow);
 }
 
-/* ✅ CAMBIO: Animación suave SOLO para proyectos (para que “suban” al hover) */
-.project {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-/* ✅ CAMBIO: Hover “elevación” en tarjetas de proyectos */
-.project:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 32px rgba(17, 24, 39, 0.1);
-}
-
-/* Grid proyectos */
+/* =========================
+   8) Proyectos (grid + hover)
+   ========================= */
 .projects__grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
 }
 
-.project--featured {
-  border: 2px solid rgba(255, 183, 3, 0.9);
+.project {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Badge */
+/* ✅ Hover con movimiento */
+.project:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+.project--featured {
+  border: 2px solid rgba(242, 140, 40, 0.7);
+}
+
 .project__badge {
   display: inline-block;
-  background: rgba(255, 183, 3, 0.25);
-  border: 1px solid rgba(255, 183, 3, 0.7);
-  color: #1f2937;
-  font-weight: 800;
-  padding: 5px 10px;
+  background: rgba(242, 140, 40, 0.16);
+  border: 1px solid rgba(242, 140, 40, 0.55);
+  color: var(--navy);
+  font-weight: 900;
+  padding: 6px 10px;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   margin-bottom: 10px;
 }
 
 .project__title {
-  margin-bottom: 8px;
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 8px;
 }
 
 .project__description {
-  color: #4b5563;
+  color: var(--muted);
   margin-bottom: 12px;
+  max-width: 70ch;
 }
 
-/* Tags */
 .project__tags {
   display: flex;
   gap: 8px;
@@ -340,31 +378,35 @@ body {
 }
 
 .tag {
-  background: rgba(26, 76, 255, 0.08);
-  color: #1a4cff;
+  background: rgba(11, 31, 58, 0.08);
+  color: var(--navy);
   padding: 6px 10px;
   border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 0.82rem;
+  font-weight: 900;
 }
 
-/* Links */
 .project__links {
   display: flex;
   gap: 14px;
 }
 
 .project__link {
-  color: #1a4cff;
-  font-weight: 800;
+  color: var(--navy);
+  font-weight: 900;
   text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
 }
 
 .project__link:hover {
-  text-decoration: underline;
+  color: var(--orange);
+  border-color: var(--orange);
 }
 
-/* ===== Skills ===== */
+/* =========================
+   9) Skills (emojis + hover)
+   ========================= */
 .skills__list {
   list-style: none;
   display: grid;
@@ -373,10 +415,24 @@ body {
 }
 
 .skills__item {
-  font-weight: 600;
+  font-weight: 800;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
 }
 
-/* ===== Contacto ===== */
+/* ✅ Hover suave y moderno */
+.skills__item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+  background: linear-gradient(
+    135deg,
+    rgba(11, 31, 58, 0.07),
+    rgba(242, 140, 40, 0.14)
+  );
+}
+
+/* =========================
+   10) Contacto
+   ========================= */
 .contact__methods {
   display: grid;
   gap: 14px;
@@ -385,35 +441,39 @@ body {
 
 .contact__method-title {
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 900;
+  color: var(--navy);
   margin-bottom: 6px;
 }
 
 .contact__link {
-  color: #1a4cff;
+  color: var(--navy);
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .contact__link:hover {
+  color: var(--orange);
   text-decoration: underline;
 }
 
-/* ===== Footer ===== */
+/* =========================
+   11) Footer
+   ========================= */
 .footer {
-  border-top: 1px solid rgba(17, 24, 39, 0.08);
-  background: rgba(255, 255, 255, 0.9);
+  border-top: 1px solid rgba(11, 31, 58, 0.10);
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .footer__text {
-  color: #6b7280;
-  font-size: 0.95rem;
+  color: var(--muted);
   padding: 18px 0;
 }
 
-/* ===== Responsive ===== */
-@media (min-width: 800px) {
-  /* Header: marca y navegación en línea */
+/* =========================
+   12) Responsive (pantallas grandes)
+   ========================= */
+@media (min-width: 900px) {
   .header__container {
     display: flex;
     align-items: center;
@@ -424,13 +484,16 @@ body {
     margin-bottom: 0;
   }
 
-  /* Proyectos: 2 columnas */
   .projects__grid {
     grid-template-columns: 1fr 1fr;
   }
 
-  /* Contacto: 2 columnas */
   .contact__methods {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .about__grid {
+    grid-template-columns: 220px 1fr;
+    align-items: center;
   }
 }
