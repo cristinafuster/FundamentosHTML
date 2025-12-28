@@ -1,0 +1,138 @@
+/* =========================================================
+   styles.css — Portfolio (azul marino + naranja)
+   SOLUCIÓN FINAL: mejoras Flex + Grid auto-fit
+   ========================================================= */
+
+/* =========================
+   1) Variables (colores y medidas)
+   ========================= */
+:root {
+  --navy: #0b1f3a;
+  --navy-2: #132f56;
+  --orange: #f28c28;
+  --bg: #f6f7fb;
+  --white: #ffffff;
+  --text: #1f2937;
+  --muted: #5b6472;
+
+  --radius: 16px;
+  --shadow: 0 14px 30px rgba(11, 31, 58, 0.12);
+  --shadow-strong: 0 18px 40px rgba(11, 31, 58, 0.18);
+
+  --max: 1020px;
+  --pad: 24px;
+
+  --header-offset: 90px;
+}
+
+/* =========================
+   2) Reset básico
+   ========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.65;
+}
+
+/* Para que al hacer click en el menú NO quede el título escondido bajo el header sticky */
+section {
+  scroll-margin-top: var(--header-offset);
+}
+
+/* Ancho estándar en contenedores */
+.header__container,
+.hero__container,
+.about__container,
+.projects__container,
+.skills__container,
+.contact__container,
+.footer__container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: var(--pad);
+}
+
+/* Separación vertical por secciones */
+.hero,
+.about,
+.projects,
+.skills,
+.contact {
+  padding: 42px 0;
+}
+
+/* =========================
+   3) Header (sticky) + nav
+   ========================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(11, 31, 58, 0.10);
+  backdrop-filter: blur(10px);
+}
+
+.header__brand {
+  margin-bottom: 12px;
+}
+
+.header__name {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.header__tagline {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Navegación */
+.nav__list {
+  list-style: none;
+
+  /* ✅ FLEXBOX: menú alineado y adaptable */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.nav__link:hover {
+  background: rgba(242, 140, 40, 0.14);
+  transform: translateY(-1px);
+}
+
+.nav__link:focus,
+.button:focus,
+.project__link:focus,
+.contact__link:focus {
+  outline: 3px solid rgba(242, 140, 40, 0.35);
+  outline-offset: 2px;
+}
+
+/* =========================
+   4) Títulos generales
+   ========================= */
+.section-title {
+  font-size: 1.55rem;
+  font-weight: 8
