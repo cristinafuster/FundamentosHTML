@@ -1,0 +1,104 @@
+/* =========================================================
+   ESTILOS BASE
+   ========================================================= */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 24px;
+}
+
+h1 { margin-bottom: 10px; }
+h2 { margin: 24px 0 10px; }
+
+/* Contenedor con Flexbox:
+   - coloca las cajas en fila
+   - gap separa sin usar márgenes
+*/
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: #f0f0f0;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+/* =========================================================
+   CAJA BASE
+   ========================================================= */
+
+/* La caja ahora contiene una imagen */
+.box {
+  width: 120px;
+  height: 120px;
+
+  /* 🔑 Importante para imágenes */
+  overflow: hidden;
+
+  border-radius: 12px;
+
+  /* Para suavizar cualquier transformación */
+  transition: transform 0.3s;
+}
+
+/* Imagen dentro de la caja */
+.box img {
+  width: 100%;
+  height: 100%;
+
+  /* 🔑 Evita deformaciones */
+  object-fit: cover;
+
+  display: block;
+}
+
+/* =========================================================
+   EJERCICIO 1 — TRANSLATE
+   ========================================================= */
+
+/* Mover a la derecha */
+.t-right:hover {
+  transform: translateX(15px);
+}
+
+/* Mover hacia arriba */
+.t-up:hover {
+  transform: translateY(-15px);
+}
+
+/* Mover en diagonal */
+.t-diagonal:hover {
+  transform: translate(12px, 12px);
+}
+
+/* =========================================================
+   EJERCICIO 2 — ROTATE
+   ========================================================= */
+
+.r-15:hover {
+  transform: rotate(15deg);
+}
+
+.r-45:hover {
+  transform: rotate(45deg);
+}
+
+.r-90:hover {
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   EJERCICIO 3 — SCALE
+   ========================================================= */
+
+.s-small:hover {
+  transform: scale(0.85);
+}
+
+.s-big:hover {
+  transform: scale(1.25);
+}
+
+.s-bounce:hover {
+  transform: scale(1.15);
+}
