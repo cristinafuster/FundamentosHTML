@@ -1,0 +1,196 @@
+/* =========================================================
+   EJERCICIOS DE TRANSFORM (CSS COMENTADO)
+   ✅ Incluye: base común + Ejercicio 1 (Translate) + Ejercicio 2 (Rotate) + Ejercicio 3 (Scale)
+   ✅ Dentro del CSS verás:
+      - Lo que hace cada bloque
+      - Qué cambiar para llegar a la SOLUCIÓN del reto (Ejercicio 1)
+   ========================================================= */
+
+
+/* =========================================================
+   0) ESTILOS BASE (comunes a todos los ejercicios)
+   ========================================================= */
+
+/* Tipografía y márgenes para que se vea “limpio” */
+body {
+  font-family: Arial, sans-serif;
+  margin: 24px;
+}
+
+h1 { margin-bottom: 10px; }
+h2 { margin: 24px 0 10px; }
+
+/* Contenedor con Flexbox:
+   - Pone cajas en fila
+   - gap separa sin usar margin en cada caja
+*/
+.container {
+  display: flex;
+  gap: 18px;
+  padding: 18px;
+  background: #f0f0f0;
+  border-radius: 12px;
+}
+
+/* Caja base:
+   - Tamaño fijo para comparar transformaciones
+   - Flex interno para centrar el texto
+   - transition: la clave para que el cambio NO sea brusco
+*/
+.box {
+  width: 120px;
+  height: 120px;
+  background: #3498db;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  /* ✅ Suaviza cualquier transform */
+  transition: transform 0.3s;
+}
+
+
+/* =========================================================
+   1) EJERCICIO 1 — TRANSLATE (Mover)
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   ✅ Versión inicial (antes del reto resuelto)
+   - Estos valores pueden sentirse un poco “fuertes”.
+   - El reto era: “hazlo más suave y que no se salga del contenedor”.
+   --------------------------------------------------------- */
+
+/* Mover a la derecha */
+.t-right:hover {
+  transform: translateX(25px); /* ❌ INICIAL: 25px */
+  /* ✅ PARA LA SOLUCIÓN: cambia 25px → 15px (más suave) */
+  /* transform: translateX(15px); */
+}
+
+/* Mover hacia arriba */
+.t-up:hover {
+  transform: translateY(-25px); /* ❌ INICIAL: -25px */
+  /* ✅ PARA LA SOLUCIÓN: cambia -25px → -15px */
+  /* transform: translateY(-15px); */
+}
+
+/* Mover en diagonal */
+.t-diagonal:hover {
+  transform: translate(18px, 18px); /* ❌ INICIAL: 18px y 18px */
+  /* ✅ PARA LA SOLUCIÓN: reduce porque se mueve en DOS ejes:
+     18px → 12px suele verse mejor */
+  /* transform: translate(12px, 12px); */
+}
+
+/* ---------------------------------------------------------
+   ✅ SOLUCIÓN FINAL DEL RETO (Ejercicio 1)
+   - Si quieres dejarlo ya resuelto, sustituye los 3 bloques
+     anteriores por estos (o descomenta las líneas).
+   --------------------------------------------------------- */
+/*
+.t-right:hover { transform: translateX(15px); }
+.t-up:hover { transform: translateY(-15px); }
+.t-diagonal:hover { transform: translate(12px, 12px); }
+*/
+
+
+/* =========================================================
+   2) EJERCICIO 2 — ROTATE (Rotar)
+   ========================================================= */
+
+/* 💡 Rotate gira sobre el centro (por defecto) */
+
+.r-15:hover {
+  transform: rotate(15deg);
+  /* ✅ PARA CAMBIAR EL EFECTO:
+     prueba 25deg o 35deg si quieren más giro */
+}
+
+.r-45:hover {
+  transform: rotate(45deg);
+}
+
+.r-90:hover {
+  transform: rotate(90deg);
+}
+
+/* ---------------------------------------------------------
+   ✅ EXTRA DIDÁCTICO (opcional):
+   transform-origin cambia el punto desde donde gira.
+   Útil para enseñar que “no siempre gira desde el centro”.
+   --------------------------------------------------------- */
+
+.o-top-left {
+  transform-origin: top left; /* gira desde esquina superior izquierda */
+}
+
+.o-top-left:hover {
+  transform: rotate(35deg);
+  /* ✅ PARA PROBAR:
+     cambia 35deg por -35deg para girar al lado contrario */
+}
+
+.o-bottom-right {
+  transform-origin: bottom right; /* gira desde esquina inferior derecha */
+}
+
+.o-bottom-right:hover {
+  transform: rotate(-35deg);
+}
+
+
+/* =========================================================
+   3) EJERCICIO 3 — SCALE (Escalar)
+   ========================================================= */
+
+/* scale() cambia el tamaño completo:
+   - 1 = normal
+   - <1 reduce
+   - >1 aumenta
+*/
+.s-small:hover {
+  transform: scale(0.8);
+  /* ✅ PARA HACERLO MÁS DRÁSTICO: 0.7 o 0.6
+     ✅ PARA HACERLO MÁS SUAVE: 0.9 */
+}
+
+.s-big:hover {
+  transform: scale(1.3);
+  /* ✅ PARA QUE NO SE VEA “exagerado”:
+     baja de 1.3 → 1.15 o 1.2 */
+}
+
+/* “bump” suave (no es rebote real, es un scale pequeño) */
+.s-bounce:hover {
+  transform: scale(1.15);
+}
+
+/* scaleX() estira solo en horizontal */
+.s-x:hover {
+  transform: scaleX(1.6);
+  /* ✅ PARA LA SOLUCIÓN “más bonita”:
+     cambia 1.6 → 1.2 (menos deformación) */
+  /* transform: scaleX(1.2); */
+}
+
+/* scaleY() estira solo en vertical */
+.s-y:hover {
+  transform: scaleY(1.6);
+  /* ✅ PARA LA SOLUCIÓN “más bonita”:
+     cambia 1.6 → 1.2 */
+  /* transform: scaleY(1.2); */
+}
+
+
+/* =========================================================
+   4) NOTA DIDÁCTICA (para alumnos)
+   ========================================================= */
+/*
+- transform NO cambia el layout real: no empuja a las otras cajas.
+- transition hace el movimiento suave (sin “saltos”).
+- :hover es el disparador; más adelante veremos otros triggers y @keyframes.
+*/
