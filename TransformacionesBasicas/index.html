@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Transformaciones CSS</title>
+
+  <!-- Hoja de estilos con transform y transition -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- =========================================================
+       TÍTULO GENERAL
+       ========================================================= -->
+  <h1>Transformaciones CSS</h1>
+
+  <p>
+    En estos ejercicios aprenderás a mover, rotar y escalar elementos
+    usando <strong>transform</strong> y <strong>transition</strong>.
+    Todas las transformaciones se activan con <code>:hover</code>.
+  </p>
+
+  <!-- =========================================================
+       EJERCICIO 1 — TRANSLATE (Mover)
+       ========================================================= -->
+  <h2>Ejercicio 1 — Translate (Mover)</h2>
+
+  <p>
+    Pasa el ratón por encima de cada caja para ver cómo se desplaza.
+    El reto es ajustar los valores para que el movimiento sea más suave.
+  </p>
+
+  <div class="container">
+    <!-- Mueve la caja a la derecha -->
+    <div class="box t-right">→ Derecha</div>
+
+    <!-- Mueve la caja hacia arriba -->
+    <div class="box t-up">↑ Arriba</div>
+
+    <!-- Mueve la caja en diagonal -->
+    <div class="box t-diagonal">↘ Diagonal</div>
+  </div>
+
+  <p class="note">
+    🔎 Reto: modifica los valores <code>px</code> en el CSS para que
+    las cajas no se muevan demasiado ni se salgan del contenedor.
+  </p>
+
+  <!-- =========================================================
+       EJERCICIO 2 — ROTATE (Rotar)
+       ========================================================= -->
+  <h2>Ejercicio 2 — Rotate (Rotar)</h2>
+
+  <p>
+    Estas cajas giran cuando pasas el ratón por encima.
+    Observa cómo cambia el giro según los grados.
+  </p>
+
+  <div class="container">
+    <!-- Giro pequeño -->
+    <div class="box r-15">15°</div>
+
+    <!-- Giro medio -->
+    <div class="box r-45">45°</div>
+
+    <!-- Giro grande -->
+    <div class="box r-90">90°</div>
+  </div>
+
+  <p>
+    Ahora observa estas cajas: giran desde una esquina distinta,
+    no desde el centro.
+  </p>
+
+  <div class="container">
+    <!-- Gira desde la esquina superior izquierda -->
+    <div class="box o-top-left">↖ Esquina</div>
+
+    <!-- Gira desde la esquina inferior derecha -->
+    <div class="box o-bottom-right">↘ Esquina</div>
+  </div>
+
+  <!-- =========================================================
+       EJERCICIO 3 — SCALE (Escalar)
+       ========================================================= -->
+  <h2>Ejercicio 3 — Scale (Escalar)</h2>
+
+  <p>
+    Estas cajas cambian de tamaño al pasar el ratón.
+    Fíjate en la diferencia entre escalar todo el elemento
+    y estirarlo solo en un eje.
+  </p>
+
+  <div class="container">
+    <!-- Reduce el tamaño -->
+    <div class="box s-small">0.8</div>
+
+    <!-- Aumenta el tamaño -->
+    <div class="box s-big">1.3</div>
+
+    <!-- Aumento suave -->
+    <div class="box s-bounce">1.15</div>
+  </div>
+
+  <div class="container">
+    <!-- Estira solo en horizontal -->
+    <div class="box s-x">scaleX</div>
+
+    <!-- Estira solo en vertical -->
+    <div class="box s-y">scaleY</div>
+  </div>
+
+  <!-- =========================================================
+       NOTA FINAL PARA EL ALUMNADO
+       ========================================================= -->
+  <p class="note">
+    📌 Recuerda:
+    <br />
+    • <code>transform</code> cambia la apariencia, no el layout
+    <br />
+    • <code>transition</code> hace que el cambio sea suave
+    <br />
+    • <code>:hover</code> es solo un disparador (hay más)
+  </p>
+
+</body>
+</html>
