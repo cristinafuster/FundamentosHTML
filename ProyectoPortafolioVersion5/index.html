@@ -1,0 +1,516 @@
+/* =========================================================
+   ✅ RESUMEN DE CAMBIOS (respecto al anterior CSS)
+   - Menú: ahora es MOBILE FIRST y se adapta a móvil/tablet:
+     * Móvil: menú en columna + links grandes
+     * Tablet/desktop (>=768px): menú en fila
+   - No hay todavía hamburguesa funcional (porque no usamos JS en esta fase)
+   - El resto de tu CSS se mantiene igual en estructura y enfoque
+   ========================================================= */
+
+/* =========================
+   1) Variables (colores y medidas)
+   ========================= */
+:root {
+  --navy: #0b1f3a;
+  --navy-2: #132f56;
+  --orange: #f28c28;
+  --bg: #f6f7fb;
+  --white: #ffffff;
+  --text: #1f2937;
+  --muted: #5b6472;
+
+  --radius: 16px;
+  --shadow: 0 14px 30px rgba(11, 31, 58, 0.12);
+  --shadow-strong: 0 18px 40px rgba(11, 31, 58, 0.18);
+
+  --max: 1020px;
+  --pad: 24px;
+
+  --header-offset: 90px;
+}
+
+/* =========================
+   2) Reset básico
+   ========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.65;
+}
+
+/* Para que al hacer click en el menú no tape el título por el header sticky */
+section {
+  scroll-margin-top: var(--header-offset);
+}
+
+/* Contenedores con ancho máximo */
+.header__container,
+.hero__container,
+.about__container,
+.projects__container,
+.skills__container,
+.contact__container,
+.footer__container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: var(--pad);
+}
+
+/* Separación vertical por secciones */
+.hero,
+.about,
+.projects,
+.skills,
+.contact {
+  padding: 42px 0;
+}
+
+/* =========================
+   3) Header (sticky)
+   ========================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(11, 31, 58, 0.10);
+  backdrop-filter: blur(10px);
+}
+
+.header__brand {
+  margin-bottom: 12px;
+}
+
+.header__name {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.header__tagline {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* =========================================================
+   ✅ NAVEGACIÓN RESPONSIVE SIN JS (CAMBIO PRINCIPAL)
+   Mobile first:
+   - Móvil: columna
+   - Tablet/desktop: fila
+   ========================================================= */
+
+.nav__list {
+  list-style: none;
+
+  /* 🔑 En móvil el menú va en columna */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  margin-top: 10px;
+}
+
+/* Links del menú: grandes para móvil */
+.nav__link {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+
+  text-decoration: none;
+  color: var(--navy);
+  font-weight: 800;
+  border-radius: 12px;
+
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.nav__link:hover {
+  background: rgba(242, 140, 40, 0.14);
+  transform: translateY(-1px);
+}
+
+/* Accesibilidad: foco visible */
+.nav__link:focus,
+.button:focus,
+.project__link:focus,
+.contact__link:focus {
+  outline: 3px solid rgba(242, 140, 40, 0.35);
+  outline-offset: 2px;
+}
+
+/* Tablet y desktop: menú horizontal */
+@media (min-width: 768px) {
+  .nav__list {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 0;
+  }
+
+  .nav__link {
+    width: auto;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================
+   4) Títulos generales
+   ========================= */
+.section-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--navy);
+}
+
+.section-lead {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+/* =========================
+   5) Hero
+   ========================= */
+.hero {
+  background: linear-gradient(
+    180deg,
+    rgba(11, 31, 58, 0.10),
+    rgba(246, 247, 251, 0)
+  );
+}
+
+.hero__title {
+  color: var(--navy);
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.hero__subtitle {
+  color: var(--navy-2);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.hero__description {
+  color: var(--muted);
+  margin-bottom: 18px;
+  max-width: 70ch;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+/* Botones */
+.button {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 900;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, var(--navy), var(--navy-2));
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+  opacity: 0.98;
+  box-shadow: var(--shadow-strong);
+}
+
+.button--secondary {
+  background: var(--white);
+  border: 2px solid var(--navy);
+  color: var(--navy);
+}
+
+.button--secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.button--large {
+  margin-top: 14px;
+}
+
+/* Stats: grid adaptable */
+.hero__stats {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
+.stat {
+  background: var(--white);
+  border: 1px solid rgba(11, 31, 58, 0.10);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+
+.stat__number {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--navy);
+}
+
+.stat__label {
+  color: var(--muted);
+}
+
+/* =========================
+   6) Sobre mí (grid auto-fit)
+   ========================= */
+.about__grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: start;
+}
+
+.about__intro,
+.about__text {
+  max-width: 70ch;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.about__photo-note {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.about__avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid rgba(242, 140, 40, 0.85);
+  box-shadow: 0 18px 40px rgba(11, 31, 58, 0.22);
+  background: var(--white);
+}
+
+.about__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Quote */
+.quote {
+  margin-top: 10px;
+  background: var(--white);
+  border: 1px solid rgba(11, 31, 58, 0.10);
+  border-left: 6px solid var(--orange);
+  padding: 14px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.quote__text {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.quote__author {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+/* =========================
+   7) Cards (proyectos / skills / contacto)
+   ========================= */
+.project,
+.skills__item,
+.contact__method {
+  background: var(--white);
+  border: 1px solid rgba(11, 31, 58, 0.10);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+/* =========================
+   8) Proyectos (grid auto-fit + hover)
+   ========================= */
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.project {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+.project--featured {
+  border: 2px solid rgba(242, 140, 40, 0.7);
+}
+
+.project__badge {
+  display: inline-block;
+  background: rgba(242, 140, 40, 0.16);
+  border: 1px solid rgba(242, 140, 40, 0.55);
+  color: var(--navy);
+  font-weight: 900;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.project__title {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.project__description {
+  color: var(--muted);
+  margin-bottom: 12px;
+  max-width: 70ch;
+}
+
+.project__tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.tag {
+  background: rgba(11, 31, 58, 0.08);
+  color: var(--navy);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.project__links {
+  display: flex;
+  gap: 14px;
+}
+
+.project__link {
+  color: var(--navy);
+  font-weight: 900;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.project__link:hover {
+  color: var(--orange);
+  border-color: var(--orange);
+}
+
+/* =========================
+   9) Skills (grid + hover)
+   ========================= */
+.skills__list {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.skills__item {
+  font-weight: 800;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.skills__item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+  background: linear-gradient(
+    135deg,
+    rgba(11, 31, 58, 0.07),
+    rgba(242, 140, 40, 0.14)
+  );
+}
+
+/* =========================
+   10) Contacto (grid auto-fit)
+   ========================= */
+.contact__methods {
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.contact__method-title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.contact__link {
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.contact__link:hover {
+  color: var(--orange);
+  text-decoration: underline;
+}
+
+/* =========================
+   11) Footer
+   ========================= */
+.footer {
+  border-top: 1px solid rgba(11, 31, 58, 0.10);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.footer__text {
+  color: var(--muted);
+  padding: 18px 0;
+}
+
+/* =========================
+   12) Desktop: header en fila
+   ========================= */
+@media (min-width: 900px) {
+  .header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header__brand {
+    margin-bottom: 0;
+  }
+}
