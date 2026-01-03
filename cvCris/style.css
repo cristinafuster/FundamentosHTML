@@ -1,0 +1,204 @@
+/* -------------------------
+   1) Reset y estilos base
+-------------------------- */
+
+/* Usamos box-sizing para que padding y border no “rompan” el ancho. Sin border-box → caja que crece al meter cosas
+
+Con border-box → caja rígida, lo de dentro se adapta*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* Tipografía base (sin Google Fonts para mantenerlo simple) */
+  font-family: Arial, Helvetica, sans-serif;
+
+  /* Quitamos el margen por defecto del navegador */
+  margin: 0;
+
+  /* Color de fondo suave */
+  background-color: #f6f6f6;
+
+  /* Color de texto */
+  color: #111;
+}
+
+/* Hacemos que los links se vean más limpios */
+a {
+  color: inherit;              /* hereda el color del texto */
+  text-decoration: underline;  /* subrayado típico de enlaces */
+}
+
+
+/* -------------------------
+   2) Contenedor centrado
+-------------------------- */
+
+.container {
+  /* Ancho máximo: evita que el texto ocupe toda la pantalla */
+  max-width: 900px;
+
+  /* Centramos con margin auto */
+  margin: 0 auto;
+
+  /* Espaciado interior (margen interno) */
+  padding: 40px 20px; /*40: arriba y abajo; 20: izquierda y derecha*/
+}
+
+
+/* -------------------------
+   3) Hero / presentación
+-------------------------- */
+
+.hero {
+  /* Fondo blanco para que destaque */
+  background-color: #fff;
+
+  /* Separación interior */
+  padding: 40px;
+
+  /* Bordes redondeados*/
+  border-radius: 12px;
+
+  /* Sombra suave para “tarjeta” */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+  /* Separación del resto */
+  margin-bottom: 30px;
+}
+
+/* Imagen de perfil */
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;      /* imagen redonda */
+  object-fit: cover;       /*La imagen se adapta al hueco sin aplastarse, aunque tenga que cortar un poco */
+
+  margin-bottom: 16px;
+}
+
+/* Texto pequeño sobre el h1 (nombre) */
+.eyebrow {
+  margin: 0 0 10px 0;
+  font-weight: bold;
+  letter-spacing: 0.4px;
+  opacity: 0.8; /* un poco más suave */
+}
+
+/* Título principal */
+.hero h1 {
+  margin: 0 0 15px 0; /*margin: arriba derecha abajo izquierda;*/
+  font-size: 28px;
+  line-height: 1.2; /* altura de línea para legibilidad */
+}
+
+/* Texto descriptivo principal */
+.lead {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Botón (en realidad es un enlace con estilo de botón) */
+.btn {
+  display: inline-block;      /* para que padding funcione bien. Permite tratar enlaces como cajas. */
+  background-color: #111;     /* negro */
+  color: #fff;                /* texto blanco */
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;      /* quitamos subrayado */
+  font-weight: bold;
+}
+
+/* Hover: efecto al pasar el ratón */
+.btn:hover {
+  opacity: 0.85;
+}
+
+
+/* -------------------------
+   4) Secciones generales
+-------------------------- */
+
+.section {
+  /* Fondo blanco para consistencia */
+  background-color: #fff;
+
+  padding: 30px;
+  border-radius: 12px;
+
+  /* Espacio entre secciones */
+  margin-bottom: 20px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  /*desplazamiento horizontal (0), desplaz. vertical (8), desenfoque (2); sombra con 6% opacidad*/
+}
+
+/* Títulos de sección */
+.section h2 {
+  margin: 0 0 12px 0;
+  font-size: 22px;
+}
+
+/* Párrafos */
+.section p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+
+/* -------------------------
+   5) Servicios con Flexbox
+-------------------------- */
+
+.cards {
+  /* ACTIVAMOS FLEXBOX:
+     Coloca las tarjetas en fila */
+  display: flex;
+
+  /* Separación entre tarjetas */
+  gap: 16px;
+
+  /* Permite que bajen a otra línea si no caben */
+  flex-wrap: wrap;
+
+  margin-top: 16px;
+}
+
+.card {
+  /* Cada tarjeta ocupa mínimo 200px y se adapta */
+  flex: 1 1 200px;
+
+  background-color: #f9f9f9;
+  padding: 18px;
+
+  border-radius: 12px;
+  border: 1px solid #e6e6e6;
+}
+
+.card h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+
+/* -------------------------
+   6) Footer
+-------------------------- */
+
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  opacity: 0.75;
+  font-size: 14px;
+}
