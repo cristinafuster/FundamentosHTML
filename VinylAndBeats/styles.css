@@ -1,0 +1,133 @@
+/* =========================
+   ESTILOS GENERALES
+   ========================= */
+body {
+  font-family: Arial, sans-serif;     /* Tipografía */
+  background-color: #f2f2f2;          /* Fondo gris claro */
+  margin: 0;                           /* Quitamos el margen por defecto */
+  color: #333;                         /* Color de texto general */
+}
+
+/* =========================
+   CABECERA
+   ========================= */
+.header {
+  background-color: #ffffff;
+  padding: 30px 20px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Título principal (ID único) */
+#titulo-principal {
+  margin: 0;
+  color: #0066cc;
+}
+
+/* Subtítulo */
+.subtitulo {
+  margin: 10px 0 20px;
+  color: #555;
+}
+
+/* Enlaces del menú */
+.nav a {
+  margin: 0 10px;
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Hover: efecto al pasar el ratón */
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+   ========================= */
+.contenedor {
+  max-width: 900px;
+  margin: 30px auto;   /* Centra el contenido */
+  padding: 0 20px;
+}
+
+/* Tarjeta blanca para cada sección */
+.card {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+
+  /* (Opcional) si quieres que se vea más “bonito”: descomenta esta línea
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  */
+}
+
+/* Lista de productos */
+.lista-productos {
+  padding-left: 18px;
+}
+
+/* Nota destacada */
+.nota {
+  margin-top: 15px;
+  background-color: #eaf3ff;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+/* Bloques de evento con línea a la izquierda */
+.evento {
+  border-left: 4px solid #0066cc;
+  padding-left: 12px;
+  margin-top: 15px;
+}
+
+/* =========================
+   FORMULARIO
+   ========================= */
+.formulario {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+/* Campos */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Botón */
+.btn {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #e8505b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgba(232, 80, 91, 0.85);
+}
+
+/* =========================
+   PIE DE PÁGINA
+   ========================= */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
