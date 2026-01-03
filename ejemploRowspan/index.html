@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Codificación de caracteres -->
+  <meta charset="UTF-8">
+
+  <!-- Título que aparece en la pestaña del navegador -->
+  <title>Ejemplo de rowspan</title>
+</head>
+<body>
+
+  <!-- Título del primer ejemplo -->
+  <h2>Ejemplo básico de rowspan</h2>
+
+  <!-- Tabla simple para mostrar rowspan -->
+  <table border="1">
+    
+    <!-- Primera fila -->
+    <tr>
+      <!-- 
+        Esta celda ocupa DOS filas gracias a rowspan="2".
+        El nombre "Luna" no se repite en la fila siguiente.
+      -->
+      <th rowspan="2">Luna</th>
+
+      <!-- Celdas normales -->
+      <td>Raza</td>
+      <td>Labrador</td>
+    </tr>
+
+    <!-- Segunda fila -->
+    <tr>
+      <!-- 
+        No se repite la celda de "Luna" porque ya ocupa esta fila
+        gracias al rowspan
+      -->
+      <td>Edad</td>
+      <td>5</td>
+    </tr>
+  </table>
+
+  <!-- Separador visual -->
+  <hr>
+
+  <!-- Título del segundo ejemplo -->
+  <h2>Tabla completa con rowspan y colspan</h2>
+
+  <!-- Tabla más completa -->
+  <table border="1">
+
+    <!-- Título descriptivo de la tabla -->
+    <caption>Mis mascotas preferidas</caption>
+
+    <!-- Cabecera de la tabla -->
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Raza</th>
+        <th>Edad</th>
+        <th>Comida preferida</th>
+      </tr>
+    </thead>
+
+    <!-- Cuerpo principal de la tabla -->
+    <tbody>
+
+      <!-- Primera fila de Luna -->
+      <tr>
+        <!-- 
+          El nombre "Luna" ocupa dos filas
+          porque la información continúa debajo
+        -->
+        <td rowspan="2">Luna</td>
+        <td>Labrador</td>
+        <td>5</td>
+        <td>Pienso</td>
+      </tr>
+
+      <!-- Segunda fila de Luna -->
+      <tr>
+        <!-- 
+          colspan="3" hace que esta celda
+          ocupe tres columnas (Raza, Edad y Comida)
+        -->
+        <td colspan="3">Le encanta jugar al aire libre</td>
+      </tr>
+
+      <!-- Fila de Milo -->
+      <tr>
+        <td>Milo</td>
+        <td>Gato europeo</td>
+        <td>3</td>
