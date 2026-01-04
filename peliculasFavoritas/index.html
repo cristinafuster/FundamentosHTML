@@ -1,27 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Codificación de caracteres -->
   <meta charset="UTF-8">
+
+  <!-- Título que aparece en la pestaña del navegador -->
   <title>Formulario de películas</title>
+
+  <!-- Ajuste para móviles y tablets -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
 
+  <!-- Título principal de la página -->
   <h1>Guardar película</h1>
 
+  <!-- 
+    FORMULARIO
+    action="#" → no envía datos a ningún sitio
+    method="post" → método habitual para formularios
+  -->
   <form action="#" method="post">
 
-    <!-- TÍTULO -->
-    <!-- Campo obligatorio -->
+    <!-- ============================= -->
+    <!-- TÍTULO DE LA PELÍCULA -->
+    <!-- ============================= -->
+
+    <!-- Label asociado al input mediante el atributo for -->
     <label for="titulo">Título de la película:</label><br>
+
+    <!-- 
+      Campo de texto
+      required → obliga a escribir algo antes de enviar
+    -->
     <input type="text" id="titulo" name="titulo" required>
 
     <br><br>
 
-    <!-- TIPO DE PELÍCULA -->
+    <!-- ============================= -->
+    <!-- TIPO DE PELÍCULA (RADIO) -->
+    <!-- ============================= -->
+
+    <!-- Texto explicativo -->
     <p>Tipo de película:</p>
 
+    <!-- 
+      Radio botón 1
+      name="tipo" → mismo nombre para que solo se pueda elegir uno
+    -->
     <label>
       <input type="radio" name="tipo" value="accion">
       Acción
@@ -29,6 +56,7 @@
 
     <br>
 
+    <!-- Radio botón 2 -->
     <label>
       <input type="radio" name="tipo" value="comedia">
       Comedia
@@ -36,17 +64,29 @@
 
     <br><br>
 
-    <!-- OPINIÓN -->
+    <!-- ============================= -->
+    <!-- OPINIÓN / DESCRIPCIÓN -->
+    <!-- ============================= -->
+
+    <!-- Campo de texto largo -->
     <label for="opinion">Opinión sobre la película:</label><br>
+
+    <!-- 
+      textarea → permite escribir varias líneas
+      rows y cols → tamaño visible del campo
+    -->
     <textarea id="opinion" name="opinion" rows="5" cols="40"></textarea>
 
     <br><br>
 
-    <!-- BOTÓN -->
+    <!-- ============================= -->
+    <!-- BOTÓN DE ENVÍO -->
+    <!-- ============================= -->
+
+    <!-- Botón para enviar el formulario -->
     <button type="submit">Guardar película</button>
 
   </form>
 
 </body>
 </html>
-
