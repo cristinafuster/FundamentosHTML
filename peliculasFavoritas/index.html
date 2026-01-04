@@ -13,6 +13,40 @@
   <form action="#" method="post">
 
     <!-- TÍTULO -->
-    <!-- Opción recomendada: usar label -->
+    <!-- Campo obligatorio -->
     <label for="titulo">Título de la película:</label><br>
-    <input type="text" id="titulo" name="titulo" requi
+    <input type="text" id="titulo" name="titulo" required>
+
+    <br><br>
+
+    <!-- TIPO DE PELÍCULA -->
+    <p>Tipo de película:</p>
+
+    <label>
+      <input type="radio" name="tipo" value="accion">
+      Acción
+    </label>
+
+    <br>
+
+    <label>
+      <input type="radio" name="tipo" value="comedia">
+      Comedia
+    </label>
+
+    <br><br>
+
+    <!-- OPINIÓN -->
+    <label for="opinion">Opinión sobre la película:</label><br>
+    <textarea id="opinion" name="opinion" rows="5" cols="40"></textarea>
+
+    <br><br>
+
+    <!-- BOTÓN -->
+    <button type="submit">Guardar película</button>
+
+  </form>
+
+</body>
+</html>
+
