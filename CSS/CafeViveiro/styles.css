@@ -1,0 +1,71 @@
+ <!-- CSS (puedes pasarlo a un archivo style.css) -->
+  <style>
+    /* ====== Estilos base (solo para que se vea más bonito) ====== */
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 24px;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.5;
+      background: #fffaf4;
+    }
+
+    .btn{
+      background-color: #b86b2b;
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .lista{
+      margin-top: 18px;
+      padding-left: 18px;
+    }
+
+    .quote{
+      margin-top: 18px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    input{
+      width: 100%;
+      padding: 10px 12px;
+      margin-top: 14px;
+      border-radius: 10px;
+      border: 1px solid #d7c7b8;
+      font-size: 16px;
+    }
+
+    /* ====== ✅ Retos (CSS) ====== */
+
+    /* 1️⃣ Botón: cambia al pasar el ratón + cursor mano */
+    .btn:hover {
+      background-color: #ffe7c2;
+      cursor: pointer;
+    }
+
+    /* 2️⃣ Input: resaltar cuando está activo (focus) */
+    input:focus {
+      outline: 2px solid #b86b2b;
+      background-color: #fff6ea;
+    }
+
+    /* 3️⃣ Primer elemento de la lista en negrita */
+    .lista li:first-child {
+      font-weight: bold;
+    }
+
+    /* 4️⃣ Frase con toque premium usando pseudoelementos */
+    /* ⭐ Reto extra: iconos al inicio y al final SIN tocar HTML */
+    .quote::before {
+      content: "🎂 ";
+    }
+
+    .quote::after {
+      content: " 🍰";
+    }
+  </style>
+</head>
