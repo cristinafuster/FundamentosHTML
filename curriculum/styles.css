@@ -1,208 +1,181 @@
-/* ===== RESET BÁSICO ===== */
+/* =========================
+   estilos.css (CV online)
+   ========================= */
+
+/* ===== Reset básico ===== */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-/* ===== ESTILOS GENERALES ===== */
 body {
-  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   background-color: #f6f7fb;
-  color: #1f2430;
+  color: #222;
   line-height: 1.6;
 }
 
-/* Contenedor */
-.container {
-  max-width: 900px;
+/* ===== Contenedor general ===== */
+.contenedor {
+  max-width: 980px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* ===== HEADER FIJO ===== */
-.header {
-  background-color: rgba(255, 255, 255, 0.95);
-  border-bottom: 1px solid #e7e9f2;
-
+/* ===== Cabecera fija ===== */
+.cabecera {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  z-index: 1000;
-
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
+  border-bottom: 1px solid #e6e6e6;
+  z-index: 10;
 }
 
-/* Flexbox en la cabecera */
-.header-flex {
+/* Flexbox en cabecera (solo cuando hay sitio) */
+.cabecera-flex {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
-.brand h1 {
+.marca h1 {
   font-size: 22px;
+}
+
+.perfil {
+  color: #555;
+  font-size: 14px;
+}
+
+/* Menú */
+.menu {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #1a4cff;
   font-weight: 700;
 }
 
-.tagline {
-  font-size: 14px;
-  font-weight: 500;
-  color: #5b6477;
+.menu a:hover {
+  text-decoration: underline;
 }
 
-/* Espacio para compensar el header fijo */
-.main {
+/* ===== Contenido principal ===== */
+/* Dejamos espacio arriba para que el header fijo no tape el contenido */
+.principal {
   margin-top: 110px;
 }
 
-/* ===== NAVEGACIÓN ===== */
-.nav a {
-  color: #2a5cff;
-  text-decoration: none;
-  font-weight: 600;
-
-  margin-right: 12px;
-  padding: 6px 2px;
-
-  display: inline-block;
-  position: relative;
-}
-
-/* Subrayado animado */
-.nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-
-  width: 0;
-  height: 2px;
-  background-color: #2a5cff;
-
-  transition: width 0.2s;
-}
-
-.nav a:hover::after {
-  width: 100%;
-}
-
-/* ===== TARJETAS ===== */
-.card {
+/* Tarjetas (secciones) */
+.tarjeta {
   background-color: #ffffff;
-  border: 1px solid #e7e9f2;
-  border-radius: 14px;
-  padding: 18px;
-  margin-top: 18px;
-
-  box-shadow: 0 10px 24px rgba(18, 28, 45, 0.06);
-}
-
-.card h2 {
-  font-size: 20px;
-  margin-bottom: 12px;
-}
-
-/* Texto auxiliar */
-.lead {
-  color: #5b6477;
-  margin-bottom: 12px;
-}
-
-/* ===== SOBRE MÍ ===== */
-.sobre-mi-flex {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-}
-
-.foto-cv {
-  width: 140px;
-  border-radius: 50%;
-  border: 3px solid #eef2ff;
-  box-shadow: 0 10px 24px rgba(18, 28, 45, 0.10);
-}
-
-/* ===== LISTAS ===== */
-.list {
-  list-style: none;
-}
-
-.list > li {
-  background-color: #fbfcff;
-  border: 1px solid #e7e9f2;
+  border: 1px solid #e6e6e6;
   border-radius: 12px;
-  padding: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.tarjeta h2 {
+  font-size: 22px;
   margin-bottom: 10px;
 }
 
-/* Sublistas (bullet points) */
-.sublist {
+/* ===== Sobre mí (foto + texto) ===== */
+.sobre-mi-flex {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.foto-cv {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e6e6e6;
+}
+
+/* ===== Listas ===== */
+.lista {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.sublista {
   margin-top: 8px;
-  margin-left: 18px;
-  list-style: disc;
+  padding-left: 18px;
 }
 
-.sublist li {
-  background: none;
-  border: none;
-  padding: 0;
+.sublista li {
   margin-bottom: 6px;
-  color: #4a5366;
 }
 
-/* ===== CONTACTO ===== */
-.contact-flex {
+/* Texto destacado */
+.texto-destacado {
+  color: #555;
+  margin-bottom: 12px;
+}
+
+/* ===== Contacto ===== */
+.contacto-flex {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
 }
 
-.contact-box {
+.contacto-caja {
   background-color: #ffffff;
-  border: 1px solid #e7e9f2;
-  border-radius: 14px;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
   padding: 14px;
-  min-width: 240px;
-  flex: 1;
-
-  box-shadow: 0 10px 24px rgba(18, 28, 45, 0.06);
+  min-width: 220px;
 }
 
-.contact-box h3 {
-  font-size: 16px;
-  margin-bottom: 6px;
-}
-
-.contact-box a {
-  color: #2a5cff;
-  font-weight: 700;
+.contacto-caja a {
+  color: #1a4cff;
   text-decoration: none;
+  font-weight: 700;
 }
 
-.contact-box a:hover {
+.contacto-caja a:hover {
   text-decoration: underline;
 }
 
-/* ===== FOOTER ===== */
-.footer {
-  margin-top: 28px;
-  border-top: 1px solid #e7e9f2;
+/* ===== Pie de página ===== */
+.pie {
+  margin-top: 30px;
+  border-top: 1px solid #e6e6e6;
   background-color: #ffffff;
 }
 
-/* ===== RESPONSIVE BÁSICO ===== */
+.pie p {
+  color: #555;
+}
+
+/* ===== Responsive simple ===== */
 @media (max-width: 600px) {
-  .sobre-mi-flex {
-    flex-direction: column;
-    text-align: center;
+  .principal {
+    margin-top: 140px;
   }
 
-  .contact-flex {
+  .sobre-mi-flex {
     flex-direction: column;
+    align-items: flex-start;
   }
+}
+
 
   .nav a {
     margin-top: 6px;
