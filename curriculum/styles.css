@@ -247,7 +247,7 @@ body {
     margin: 8px 0;
   }
 
-
+/*opcional, para sección marca y perfil
     .marca h1 {
     white-space: nowrap;
     overflow: hidden;
@@ -255,6 +255,8 @@ body {
     font-size: 1rem;
   }
 
-.perfil{font-size: 0.5rem;}
+.perfil{
+  font-size: 0.8rem;
+  } */
 }
 
